@@ -1,0 +1,25 @@
+{
+  "style": "Cohesive set of card-game illustrations for a near-future AI strategy game. Muted, sophisticated palette (deep blues, magenta, teal accents on near-black). Semi-isometric techno-illustration, clean vector shading, subtle grain, no text, no logos, 4:3 framing with clear focal subject and room at the bottom for an overlaid label.",
+  "outputDir": "public/art",
+  "size": "1024x768",
+  "cards": [
+    { "id": "infrastructure", "prompt": "rows of glowing GPU server racks in a vast dark datacenter, cables like rivers of light" },
+    { "id": "research", "prompt": "a holographic neural network being dissected by floating analytic tools, a researcher silhouette" },
+    { "id": "policy", "prompt": "a summit table of diplomats with a translucent globe and AI treaty hologram above it" },
+    { "id": "talent", "prompt": "brilliant researchers collaborating around a glowing whiteboard of equations, warm rim light" },
+    { "id": "market", "prompt": "a soaring financial skyline made of circuit-board towers, ascending green value curves" },
+    { "id": "wildcard", "prompt": "an unexpected breakthrough: a singular bright filament unraveling into new architecture, dramatic" }
+  ],
+  "techCategories": [
+    { "id": "ai", "prompt": "an abstract self-improving intelligence, recursive glowing loops of light" },
+    { "id": "robotics", "prompt": "humanoid robots working an automated factory floor, sparks and precision" },
+    { "id": "biology", "prompt": "AI-designed proteins folding, luminous molecular structures in a lab" },
+    { "id": "longevity", "prompt": "a cell being reset to youth, time-reversal motif, soft hopeful light" },
+    { "id": "energy", "prompt": "a fusion tokamak ring blazing with contained plasma, immense power" },
+    { "id": "materials", "prompt": "a levitating room-temperature superconductor, programmable matter morphing" },
+    { "id": "quantum", "prompt": "a fault-tolerant quantum computer, golden dilution refrigerator chandelier" },
+    { "id": "space", "prompt": "an orbital datacenter and the beginnings of a Dyson swarm around a star" },
+    { "id": "exotic", "prompt": "a warp bubble bending starlight, an Alcubierre drive prototype in deep space" },
+    { "id": "governance", "prompt": "a transparent constitutional framework over a city, balance of control and freedom" }
+  ]
+}
