@@ -22,6 +22,11 @@ function path(points: ForecastPoint[], key: 'capability' | 'alignment' | 'global
     .join(' ');
 }
 
+// The capability line closed down to the baseline, for a soft area fill.
+function area(points: ForecastPoint[], key: 'capability'): string {
+  return `${path(points, key)} L${(W - PAD).toFixed(1)},${H - PAD} L${PAD},${H - PAD} Z`;
+}
+
 export function ForecastChart({ state }: Props) {
   const points = projectForecast(state, FORECAST_TICKS);
   const threshold = H - PAD - (SINGULARITY / SINGULARITY) * (H - PAD * 2);
@@ -31,7 +36,14 @@ export function ForecastChart({ state }: Props) {
       <h2>Forecast · next {FORECAST_TICKS} ticks</h2>
       <p className="forecast-sub">Projected under current strategy (no events / cards)</p>
       <svg viewBox={`0 0 ${W} ${H}`} className="forecast-svg" preserveAspectRatio="none">
+        <defs>
+          <linearGradient id="capArea" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stopColor="var(--cap)" stopOpacity="0.35" />
+            <stop offset="100%" stopColor="var(--cap)" stopOpacity="0" />
+          </linearGradient>
+        </defs>
         <line x1={PAD} y1={threshold} x2={W - PAD} y2={threshold} className="grid singularity-line" />
+        <path d={area(points, 'capability')} className="area-capability" />
         <path d={path(points, 'global')} className="line line-global" />
         <path d={path(points, 'alignment')} className="line line-alignment" />
         <path d={path(points, 'capability')} className="line line-capability" />

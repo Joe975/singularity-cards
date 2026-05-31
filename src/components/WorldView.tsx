@@ -1,6 +1,7 @@
+import { useEffect, useRef } from 'react';
 import { NEUTRAL_MODIFIERS, RESOURCE_META, SINGULARITY, phaseForCapability } from '../game/config';
 import { dateLabel } from '../game/engine';
-import type { GameState, ModifierKey } from '../game/types';
+import type { GameState, ModifierKey, ResourceKey } from '../game/types';
 
 interface Props {
   state: GameState;
@@ -20,6 +21,14 @@ export function WorldView({ state }: Props) {
   const activeMods = (Object.keys(state.modifiers) as ModifierKey[]).filter(
     (k) => state.modifiers[k] !== NEUTRAL_MODIFIERS[k],
   );
+
+  // Remember last-shown values so a changed number can flash up/down.
+  const prev = useRef<Partial<Record<ResourceKey, number>>>({});
+  useEffect(() => {
+    const snap: Partial<Record<ResourceKey, number>> = {};
+    for (const m of RESOURCE_META) snap[m.key] = Math.round(r[m.key]);
+    prev.current = snap;
+  });
 
   return (
     <div className="worldview panel">
@@ -52,17 +61,23 @@ export function WorldView({ state }: Props) {
 
       <div className="resources">
         {RESOURCE_META.map((m) => {
-          const val = r[m.key];
+          const val = Math.round(r[m.key]);
+          const before = prev.current[m.key];
+          const dir = before === undefined || before === val ? '' : val > before ? 'up' : 'down';
           return (
             <div key={m.key} className="resource">
               <div className="resource-top">
                 <span className="badge" style={{ background: m.color }}>{m.short}</span>
                 <span className="rlabel">{m.label}</span>
-                <span className="rval">{Math.round(val)}</span>
+                {/* key forces a remount on change so the flash animation replays */}
+                <span key={val} className={`rval ${dir}`}>{val}</span>
               </div>
               {m.gauge && (
                 <div className="gauge">
-                  <div className="gauge-fill" style={{ width: `${val}%`, background: m.color }} />
+                  <div
+                    className="gauge-fill"
+                    style={{ width: `${val}%`, background: m.color, boxShadow: `0 0 8px -1px ${m.color}` }}
+                  />
                 </div>
               )}
             </div>
