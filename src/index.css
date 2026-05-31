@@ -65,9 +65,6 @@ button { font-family: inherit; cursor: pointer; }
   gap: 16px;
   align-items: start;
 }
-@media (max-width: 860px) {
-  .board { grid-template-columns: 1fr; }
-}
 .sidebar { display: flex; flex-direction: column; gap: 14px; }
 .main { display: flex; flex-direction: column; gap: 14px; }
 
@@ -252,7 +249,31 @@ button { font-family: inherit; cursor: pointer; }
 .phase-banner span { font-size: 0.74rem; color: var(--muted); }
 
 /* ---------- tech tree ---------- */
-.tech-head { display: flex; justify-content: space-between; align-items: baseline; }
+.techpanel summary.tech-head {
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+.techpanel summary.tech-head::-webkit-details-marker { display: none; }
+.techpanel summary.tech-head h2 { margin: 0; }
+/* Chevron indicates collapse state. */
+.techpanel summary.tech-head h2::before {
+  content: '▸';
+  display: inline-block;
+  margin-right: 8px;
+  color: var(--muted);
+  transition: transform 0.15s;
+}
+.techpanel[open] summary.tech-head h2::before { transform: rotate(90deg); }
+.techpanel[open] .tech-cats { margin-top: 12px; }
+.tech-summary { display: flex; align-items: center; gap: 10px; }
+.tech-avail {
+  font-size: 0.7rem; color: var(--accent); border: 1px solid var(--accent);
+  border-radius: 999px; padding: 2px 8px;
+}
 .tech-head .rp { color: var(--pos); font-weight: 700; font-variant-numeric: tabular-nums; }
 .tech-cats {
   display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px;
@@ -278,3 +299,22 @@ button { font-family: inherit; cursor: pointer; }
 .tech-locked { opacity: 0.55; }
 .tech-unlocked { border-color: #2c5a3f; background: #16261d; }
 .tech-available { border-color: var(--accent); }
+
+/* ---------- responsive (kept last so it overrides the base layout rules) ---------- */
+@media (max-width: 860px) {
+  /* Dissolve the two-column wrappers so the panels can be reordered: on mobile
+     the primary action (choosing a card) should sit right under the status,
+     not below the entire sidebar. */
+  .board { display: flex; flex-direction: column; gap: 14px; }
+  .sidebar, .main { display: contents; }
+  .worldview      { order: 1; }
+  .choose-heading { order: 2; margin: 4px 0 0; }
+  .card-choice    { order: 3; }
+  .strategy       { order: 4; }
+  .forecast       { order: 5; }
+  .techpanel      { order: 6; }
+  .eventlog       { order: 7; }
+
+  /* Two-up the resource readout so it doesn't push the cards off-screen. */
+  .resources { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 16px; }
+}

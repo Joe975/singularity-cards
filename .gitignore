@@ -29,3 +29,6 @@ buildlog.txt
 
 preview.log
 result.txt
+
+# generated playwright screenshots (visual-testing artifacts)
+screenshots/

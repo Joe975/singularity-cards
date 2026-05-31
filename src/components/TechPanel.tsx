@@ -43,12 +43,17 @@ export function TechPanel({ state, onResearch }: Props) {
     techs: TECHS.filter((t) => t.category === cat).sort((a, b) => a.tier - b.tier),
   }));
 
+  const available = TECHS.filter((t) => techStatus(t, state) === 'available').length;
+
   return (
-    <div className="techpanel panel">
-      <div className="tech-head">
+    <details className="techpanel panel" open>
+      <summary className="tech-head">
         <h2>Tech Tree</h2>
-        <span className="rp">{Math.round(state.resources.research)} RP</span>
-      </div>
+        <span className="tech-summary">
+          {available > 0 && <span className="tech-avail">{available} available</span>}
+          <span className="rp">{Math.round(state.resources.research)} RP</span>
+        </span>
+      </summary>
       <div className="tech-cats">
         {grouped.map(({ cat, techs }) => (
           <div key={cat} className="tech-cat">
@@ -94,6 +99,6 @@ export function TechPanel({ state, onResearch }: Props) {
           </div>
         ))}
       </div>
-    </div>
+    </details>
   );
 }
