@@ -368,58 +368,6 @@ button:active { transform: translateY(1px); }
 .phase-banner strong { font-size: 0.95rem; color: var(--cap); }
 .phase-banner span { font-size: 0.74rem; color: var(--muted); }
 
-/* ---------- tech tree ---------- */
-.techpanel summary.tech-head {
-  cursor: pointer;
-  list-style: none;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 8px;
-}
-.techpanel summary.tech-head::-webkit-details-marker { display: none; }
-.techpanel summary.tech-head h2 { margin: 0; }
-/* Chevron indicates collapse state. */
-.techpanel summary.tech-head h2::before {
-  content: '▸';
-  display: inline-block;
-  margin-right: 8px;
-  color: var(--muted);
-  transition: transform 0.15s;
-}
-.techpanel[open] summary.tech-head h2::before { transform: rotate(90deg); }
-.techpanel[open] .tech-cats { margin-top: 12px; }
-.tech-summary { display: flex; align-items: center; gap: 10px; }
-.tech-avail {
-  font-size: 0.7rem; color: var(--accent); border: 1px solid var(--accent);
-  border-radius: 999px; padding: 2px 8px;
-}
-.tech-head .rp { color: var(--pos); font-weight: 700; font-variant-numeric: tabular-nums; }
-.tech-cats {
-  display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px;
-}
-.tech-cat h3 { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.06em; margin: 4px 0 6px; }
-.tech-list { display: flex; flex-direction: column; gap: 6px; }
-.tech {
-  background: var(--panel-2); border: 1px solid var(--line); border-radius: 8px;
-  padding: 8px; font-size: 0.78rem;
-}
-.tech-top { display: flex; justify-content: space-between; align-items: baseline; gap: 6px; }
-.tech-name { font-weight: 600; }
-.tech-tier { color: var(--muted); font-size: 0.68rem; }
-.tech-effects { display: flex; flex-wrap: wrap; gap: 3px 6px; margin: 5px 0 6px; }
-.tech-bit { color: var(--muted); font-size: 0.7rem; }
-.tech-buy {
-  width: 100%; border: 1px solid var(--line); border-radius: 6px; padding: 5px;
-  background: var(--accent); color: #06121f; font-weight: 600; font-size: 0.74rem;
-}
-.tech-buy:hover:not(:disabled) { background: #7cc0f0; }
-.tech-buy:disabled { background: transparent; color: var(--muted); cursor: not-allowed; }
-.tech-status.done { color: var(--pos); font-size: 0.74rem; }
-.tech-locked { opacity: 0.55; }
-.tech-unlocked { border-color: #2c5a3f; background: #16261d; }
-.tech-available { border-color: var(--accent); }
-
 /* ---------- responsive (kept last so it overrides the base layout rules) ---------- */
 @media (max-width: 860px) {
   /* Dissolve the two-column wrappers so the panels can be reordered: on mobile
@@ -432,8 +380,7 @@ button:active { transform: translateY(1px); }
   .card-choice    { order: 3; }
   .strategy       { order: 4; }
   .forecast       { order: 5; }
-  .techpanel      { order: 6; }
-  .eventlog       { order: 7; }
+  .eventlog       { order: 6; }
 
   /* Two-up the resource readout so it doesn't push the cards off-screen. */
   .resources { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 16px; }

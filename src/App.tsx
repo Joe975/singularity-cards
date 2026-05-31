@@ -4,16 +4,9 @@ import { WorldView } from './components/WorldView';
 import { StrategyPanel } from './components/StrategyPanel';
 import { ForecastChart } from './components/ForecastChart';
 import { CardChoice } from './components/CardChoice';
-import { TechPanel } from './components/TechPanel';
 import { EventLog } from './components/EventLog';
 import { EndScreen } from './components/EndScreen';
-import {
-  chooseCard,
-  researchTech,
-  setStrategy,
-  skipTurn,
-  startGame,
-} from './game/engine';
+import { chooseCard, setStrategy, skipTurn, startGame } from './game/engine';
 import { seedFromString } from './game/rng';
 import { clearGame, loadGame, saveGame } from './game/persistence';
 import type { EntityType, GameState, Strategy } from './game/types';
@@ -93,10 +86,6 @@ export default function App() {
             resources={state.resources}
             onPlay={(id) => setState((prev) => (prev ? chooseCard(prev, id) : prev))}
             onSkip={() => setState((prev) => (prev ? skipTurn(prev) : prev))}
-          />
-          <TechPanel
-            state={state}
-            onResearch={(id) => setState((prev) => (prev ? researchTech(prev, id) : prev))}
           />
           <EventLog log={state.log} />
         </main>

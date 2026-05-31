@@ -15,41 +15,20 @@ export type CardType =
   | 'wildcard';
 export type Rarity = 'common' | 'uncommon' | 'rare';
 
-export type TechCategory =
-  | 'ai'
-  | 'robotics'
-  | 'biology'
-  | 'longevity'
-  | 'energy'
-  | 'materials'
-  | 'quantum'
-  | 'space'
-  | 'exotic'
-  | 'governance';
-
+// Four resources only: two spendable stockpiles and two 0-100 gauges.
 export interface Resources {
   capital: number; // money to spend (may go negative => collapse)
-  compute: number; // FLOP capacity
-  energy: number; // power capacity to run compute
-  talent: number; // researchers / engineers
-  research: number; // accumulated research points (spent on the tech tree)
-  alignment: number; // safety / control progress (0-100)
+  compute: number; // FLOP capacity; drives capability gain
   capability: number; // your AI progress toward singularity (0-100)
-  influence: number; // public trust / political capital (0-100)
-  tension: number; // geopolitical / existential tension (0-100) -> war
-  autonomy: number; // how independent AI is of human control (0-100)
-  openness: number; // free & open (high) vs authoritarian (low) (0-100)
+  alignment: number; // safety / control progress (0-100)
 }
 
 export type ResourceKey = keyof Resources;
 
-// Multiplicative world modifiers altered by events and techs (1 = neutral).
+// Multiplicative world modifiers altered by events (1 = neutral).
 export interface Modifiers {
-  computeCostMult: number; // memory/hardware shocks raise this
-  energyCostMult: number;
-  marketMult: number; // capital generation multiplier
+  computeCostMult: number; // hardware/energy shocks raise the cost of running compute
   capabilityMult: number; // research-speed multiplier
-  researchMult: number; // research-point generation multiplier
 }
 
 export type ModifierKey = keyof Modifiers;
@@ -84,39 +63,15 @@ export interface WorldEvent {
   modifiers?: Partial<Modifiers>; // multiplied into current modifiers
 }
 
-export interface Tech {
-  id: string;
-  name: string;
-  category: TechCategory;
-  tier: number; // 1 (near-term) .. 5 (far future)
-  cost: number; // research points required
-  prereqs: string[]; // tech ids that must be unlocked first
-  requiresCapability?: number; // minimum capability to be researchable
-  flavor: string;
-  onUnlock?: Partial<Resources>; // one-time deltas
-  perTick?: Partial<Resources>; // permanent per-tick deltas (scaled by tick length)
-  modifiers?: Partial<Modifiers>; // permanent multipliers applied once
-  relinquish?: boolean; // governance: enacts a global pause
-}
-
 export interface LogEntry {
   day: number;
-  kind: 'event' | 'card' | 'tech' | 'system';
+  kind: 'event' | 'card' | 'system';
   text: string;
 }
 
 export type GamePhase = 'newgame' | 'playing' | 'ended';
 
-export type Outcome =
-  | 'asi-utopia'
-  | 'asi-dystopia'
-  | 'asi-rogue'
-  | 'nuclear-war'
-  | 'human-utopia'
-  | 'human-dystopia'
-  | 'outpaced'
-  | 'collapse'
-  | null;
+export type Outcome = 'aligned' | 'misaligned' | 'collapse' | 'outpaced' | null;
 
 export interface GameState {
   version: number;
@@ -130,8 +85,6 @@ export interface GameState {
   globalCapability: number; // rival "world" clock toward singularity (0-100)
   recurring: RecurringEffect[];
   firedEvents: string[]; // one-shot events already triggered
-  techs: string[]; // unlocked tech ids
-  relinquished: boolean; // a global pause has been enacted
   offer: Card[]; // the current 3-card choice
   log: LogEntry[];
   phase: GamePhase;

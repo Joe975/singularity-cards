@@ -9,10 +9,7 @@ interface Props {
 
 const MODIFIER_LABEL: Record<ModifierKey, string> = {
   computeCostMult: 'Compute cost',
-  energyCostMult: 'Energy cost',
-  marketMult: 'Market',
   capabilityMult: 'Research speed',
-  researchMult: 'R&D output',
 };
 
 export function WorldView({ state }: Props) {
@@ -89,7 +86,7 @@ export function WorldView({ state }: Props) {
         <div className="modifiers">
           {activeMods.map((k) => {
             const v = state.modifiers[k];
-            const bad = (k === 'computeCostMult' || k === 'energyCostMult') ? v > 1 : v < 1;
+            const bad = k === 'computeCostMult' ? v > 1 : v < 1;
             return (
               <span key={k} className={`mod ${bad ? 'bad' : 'good'}`}>
                 {MODIFIER_LABEL[k]} ×{v}

@@ -16,23 +16,13 @@ const DEFS: EventDef[] = [
   {
     weight: 3,
     oneShot: true,
-    eligible: (s) => s.resources.compute >= 60,
+    eligible: (s) => s.resources.compute >= 50,
     event: {
       id: 'memory-shock',
       title: 'Global Memory Shortage',
-      description: 'HBM supply seizes up. Every future compute buildout costs more for months.',
+      description: 'HBM supply seizes up. Running your clusters costs more for months.',
       severity: 'bad',
       modifiers: { computeCostMult: 1.5 },
-    },
-  },
-  {
-    weight: 2,
-    event: {
-      id: 'energy-crunch',
-      title: 'Energy Price Spike',
-      description: 'Grid demand surges. Powering your clusters just got pricier.',
-      severity: 'bad',
-      modifiers: { energyCostMult: 1.35 },
     },
   },
   {
@@ -50,10 +40,9 @@ const DEFS: EventDef[] = [
     event: {
       id: 'market-boom',
       title: 'AI Market Boom',
-      description: 'Investors pile in. Commercial revenue is supercharged.',
+      description: 'Investors pile in. A windfall lands in the treasury.',
       severity: 'good',
-      modifiers: { marketMult: 1.3 },
-      effects: { capital: 30 },
+      effects: { capital: 35 },
     },
   },
   {
@@ -63,7 +52,6 @@ const DEFS: EventDef[] = [
       title: 'Market Correction',
       description: 'The bubble wobbles. Capital dries up and valuations fall.',
       severity: 'bad',
-      modifiers: { marketMult: 0.8 },
       effects: { capital: -25 },
     },
   },
@@ -72,29 +60,9 @@ const DEFS: EventDef[] = [
     event: {
       id: 'safety-incident',
       title: 'High-Profile Safety Incident',
-      description: 'A deployed system fails publicly. Trust drops and nerves fray.',
+      description: 'A deployed system fails publicly. Oversight takes a hit.',
       severity: 'bad',
-      effects: { influence: -10, alignment: -6, tension: 5 },
-    },
-  },
-  {
-    weight: 2,
-    event: {
-      id: 'arms-race-scare',
-      title: 'Arms-Race Scare',
-      description: 'Militaries signal an AI build-up. The world grows dangerously tense.',
-      severity: 'bad',
-      effects: { tension: 15 },
-    },
-  },
-  {
-    weight: 2,
-    event: {
-      id: 'cyber-attack',
-      title: 'State-Level Cyberattack',
-      description: 'Your systems are breached. Costly, and the mood sours.',
-      severity: 'bad',
-      effects: { capital: -20, tension: 6 },
+      effects: { alignment: -6 },
     },
   },
   {
@@ -109,13 +77,22 @@ const DEFS: EventDef[] = [
   },
   {
     weight: 2,
-    eligible: (s) => s.resources.influence >= 40,
     event: {
-      id: 'talent-influx',
-      title: 'Talent Influx',
-      description: 'Your reputation attracts a wave of brilliant new hires.',
+      id: 'compute-windfall',
+      title: 'Surplus Hardware',
+      description: 'A cancelled rival project floods the market with cheap accelerators.',
       severity: 'good',
-      effects: { talent: 10 },
+      effects: { compute: 15 },
+    },
+  },
+  {
+    weight: 2,
+    event: {
+      id: 'cyber-attack',
+      title: 'State-Level Cyberattack',
+      description: 'Your systems are breached. Costly to recover.',
+      severity: 'bad',
+      effects: { capital: -20 },
     },
   },
   {
@@ -126,18 +103,7 @@ const DEFS: EventDef[] = [
       title: 'Regulatory Probe',
       description: 'Lawmakers open an inquiry into your frontier work.',
       severity: 'bad',
-      effects: { influence: -8, capital: -15 },
-    },
-  },
-  {
-    weight: 2,
-    eligible: (s) => s.resources.autonomy >= 50,
-    event: {
-      id: 'autonomy-backlash',
-      title: 'Public Backlash on Autonomy',
-      description: 'Reports of unsupervised AI agents spook the public.',
-      severity: 'bad',
-      effects: { openness: -8, influence: -6, tension: 4 },
+      effects: { capital: -18, capability: -2 },
     },
   },
   {
@@ -148,7 +114,7 @@ const DEFS: EventDef[] = [
       title: 'A Rival Makes a Leap',
       description: 'A competing power announces a major advance. The world clock jumps.',
       severity: 'bad',
-      effects: { influence: -4, tension: 8 },
+      effects: { alignment: -2 },
     },
   },
   {

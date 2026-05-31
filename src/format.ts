@@ -14,12 +14,9 @@ export function resourceLabel(key: ResourceKey): string {
   return LABEL.get(key) ?? key;
 }
 
-// For these stats, going UP is bad — so a positive delta should read red.
-const BAD_WHEN_UP = new Set<ResourceKey>(['tension', 'autonomy']);
-
-// Is this delta good (green) for the player?
-export function isGoodDelta(key: ResourceKey, value: number): boolean {
-  return BAD_WHEN_UP.has(key) ? value < 0 : value > 0;
+// With only four resources, more is always better — a positive delta reads green.
+export function isGoodDelta(_key: ResourceKey, value: number): boolean {
+  return value > 0;
 }
 
 export interface DeltaEntry {
