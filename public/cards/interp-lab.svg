@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 120" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1c0f1a"/><stop offset="1" stop-color="#0b0e14"/></linearGradient>
+    <radialGradient id="gl" cx="40%" cy="-10%" r="90%"><stop offset="0" stop-color="#e65a8c" stop-opacity=".38"/><stop offset="1" stop-color="#e65a8c" stop-opacity="0"/></radialGradient>
+    <clipPath id="lens"><circle cx="150" cy="56" r="34"/></clipPath>
+  </defs>
+  <rect width="320" height="120" fill="url(#bg)"/>
+  <rect width="320" height="120" fill="url(#gl)"/>
+  <!-- faint circuit graph across -->
+  <g stroke="#a3417a" stroke-width="1" stroke-opacity=".3" fill="none">
+    <path d="M20 40 H120 M40 80 H140 M200 36 H300 M180 84 H300 M70 40 V80 M250 36 V84"/>
+  </g>
+  <g fill="#a3417a" fill-opacity=".4"><circle cx="40" cy="80" r="3"/><circle cx="70" cy="40" r="3"/><circle cx="250" cy="36" r="3"/><circle cx="250" cy="84" r="3"/></g>
+  <!-- magnified circuits inside lens -->
+  <g clip-path="url(#lens)">
+    <rect x="116" y="22" width="68" height="68" fill="#220f1c"/>
+    <g stroke="#e65a8c" stroke-width="2" fill="none" stroke-opacity=".9">
+      <path d="M120 44 H150 V64 H184 M132 30 V56 H168 V90 M150 64 V40"/>
+    </g>
+    <g fill="#ff9ec2"><circle cx="150" cy="44" r="3"/><circle cx="150" cy="64" r="3"/><circle cx="168" cy="56" r="3"/><circle cx="132" cy="56" r="3"/></g>
+  </g>
+  <!-- magnifier -->
+  <circle cx="150" cy="56" r="34" fill="none" stroke="#e65a8c" stroke-width="4"/>
+  <circle cx="150" cy="56" r="34" fill="#8ec5ff" fill-opacity=".05"/>
+  <line x1="176" y1="82" x2="200" y2="106" stroke="#e65a8c" stroke-width="7" stroke-linecap="round"/>
+</svg>

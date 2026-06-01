@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 120" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1c0f1a"/><stop offset="1" stop-color="#0b0e14"/></linearGradient>
+    <radialGradient id="gl" cx="50%" cy="-10%" r="90%"><stop offset="0" stop-color="#e65a8c" stop-opacity=".38"/><stop offset="1" stop-color="#e65a8c" stop-opacity="0"/></radialGradient>
+  </defs>
+  <rect width="320" height="120" fill="url(#bg)"/>
+  <rect width="320" height="120" fill="url(#gl)"/>
+  <!-- compressed waveform on the left -->
+  <g stroke="#a3417a" stroke-width="2" stroke-opacity=".6" fill="none">
+    <path d="M24 60 q6 -28 12 0 t12 0 t12 0 t12 0 t12 0"/>
+  </g>
+  <g stroke="#e65a8c" stroke-width="2" fill="none">
+    <path d="M96 60 q3 -16 6 0 t6 0 t6 0 t6 0 t6 0 t6 0 t6 0 t6 0"/>
+  </g>
+  <path d="M150 60 l16 -6 v4 h12 v4 h-12 v4 z" fill="#ff9ec2"/>
+  <!-- interlocking gears -->
+  <g fill="none" stroke="#e65a8c" stroke-width="3">
+    <circle cx="232" cy="50" r="20"/>
+    <g stroke-width="6"><path d="M232 24 V18 M232 82 V76 M206 50 H200 M264 50 H258 M214 32 l-4 -4 M250 68 l4 4 M250 32 l4 -4 M214 68 l-4 4"/></g>
+  </g>
+  <g fill="none" stroke="#a3417a" stroke-width="3">
+    <circle cx="270" cy="80" r="14"/>
+    <g stroke-width="5"><path d="M270 62 V57 M270 98 V103 M252 80 H247 M288 80 H293 M258 68 l-3 -3 M282 92 l3 3"/></g>
+  </g>
+  <circle cx="232" cy="50" r="5" fill="#ff9ec2"/>
+  <circle cx="270" cy="80" r="4" fill="#e65a8c"/>
+</svg>

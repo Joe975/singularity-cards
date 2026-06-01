@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 120" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0c1f1a"/><stop offset="1" stop-color="#0b0e14"/></linearGradient>
+    <radialGradient id="gl" cx="50%" cy="-10%" r="90%"><stop offset="0" stop-color="#5ae6d8" stop-opacity=".34"/><stop offset="1" stop-color="#5ae6d8" stop-opacity="0"/></radialGradient>
+  </defs>
+  <rect width="320" height="120" fill="url(#bg)"/>
+  <rect width="320" height="120" fill="url(#gl)"/>
+  <!-- eval waveform running through -->
+  <path d="M16 60 H110 l8 -22 8 44 8 -30 6 16 H300" fill="none" stroke="#2c9f7a" stroke-width="2" stroke-opacity=".55"/>
+  <!-- shield -->
+  <g transform="translate(160,60)">
+    <path d="M0 -38 L34 -26 V6 Q34 30 0 44 Q-34 30 -34 6 V-26 Z" fill="#0e2a24" stroke="#5ae6d8" stroke-width="2.5"/>
+    <path d="M-16 0 l10 12 22 -28" fill="none" stroke="#5ae6d8" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="0" cy="0" r="40" fill="#5ae6d8" fill-opacity=".05"/>
+  </g>
+  <!-- small repeating pulse dots -->
+  <g fill="#5ae6d8"><circle cx="40" cy="60" r="2.5"/><circle cx="70" cy="60" r="2.5" opacity=".7"/><circle cx="262" cy="60" r="2.5" opacity=".7"/><circle cx="292" cy="60" r="2.5"/></g>
+</svg>

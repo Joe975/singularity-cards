@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 120" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0c1f1a"/><stop offset="1" stop-color="#0b0e14"/></linearGradient>
+    <radialGradient id="gl" cx="50%" cy="-10%" r="90%"><stop offset="0" stop-color="#5ae6d8" stop-opacity=".34"/><stop offset="1" stop-color="#5ae6d8" stop-opacity="0"/></radialGradient>
+  </defs>
+  <rect width="320" height="120" fill="url(#bg)"/>
+  <rect width="320" height="120" fill="url(#gl)"/>
+  <!-- target bullseye -->
+  <g transform="translate(160,60)" fill="none" stroke="#5ae6d8" stroke-width="2.5">
+    <circle r="42"/><circle r="28" stroke="#2c9f7a"/><circle r="14"/>
+  </g>
+  <circle cx="160" cy="60" r="5" fill="#ff9ec2"/>
+  <!-- crosshair / steering arms -->
+  <g stroke="#5ae6d8" stroke-width="2.5" stroke-linecap="round"><line x1="160" y1="6" x2="160" y2="22"/><line x1="160" y1="98" x2="160" y2="114"/><line x1="106" y1="60" x2="90" y2="60"/><line x1="214" y1="60" x2="230" y2="60"/></g>
+  <!-- incoming aligned vector -->
+  <path d="M40 30 L150 56" fill="none" stroke="#5ae6d8" stroke-width="2.5" stroke-opacity=".8"/>
+  <path d="M150 56 l-14 -3 m14 3 l-5 -13" fill="none" stroke="#5ae6d8" stroke-width="2.5" stroke-linecap="round"/>
+  <g fill="#5ae6d8" fill-opacity=".5"><circle cx="40" cy="30" r="3"/><circle cx="284" cy="92" r="3"/></g>
+</svg>

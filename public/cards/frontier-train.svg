@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 120" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1c0f1a"/><stop offset="1" stop-color="#0b0e14"/></linearGradient>
+    <radialGradient id="gl" cx="70%" cy="-10%" r="90%"><stop offset="0" stop-color="#e65a8c" stop-opacity=".4"/><stop offset="1" stop-color="#e65a8c" stop-opacity="0"/></radialGradient>
+  </defs>
+  <rect width="320" height="120" fill="url(#bg)"/>
+  <rect width="320" height="120" fill="url(#gl)"/>
+  <!-- rising loss curve -->
+  <path d="M30 96 C70 92 96 60 150 40 S250 22 296 18" fill="none" stroke="#a3417a" stroke-width="2" stroke-opacity=".7"/>
+  <path d="M30 102 C80 100 110 84 170 70 S260 56 296 50" fill="none" stroke="#e65a8c" stroke-width="2.5" stroke-dasharray="3 4" opacity=".5"/>
+  <!-- neural net -->
+  <g stroke="#e65a8c" stroke-width="1" stroke-opacity=".45">
+    <path d="M210 36 L262 30 M210 36 L262 56 M210 36 L262 82 M210 70 L262 30 M210 70 L262 56 M210 70 L262 82"/>
+    <path d="M156 24 L210 36 M156 24 L210 70 M156 88 L210 36 M156 88 L210 70"/>
+  </g>
+  <g fill="#1c0f1a" stroke="#e65a8c" stroke-width="1.5">
+    <circle cx="156" cy="24" r="6"/><circle cx="156" cy="88" r="6"/>
+    <circle cx="210" cy="36" r="6"/><circle cx="210" cy="70" r="6"/>
+    <circle cx="262" cy="30" r="6"/><circle cx="262" cy="56" r="6"/><circle cx="262" cy="82" r="6"/>
+  </g>
+  <g fill="#ff9ec2"><circle cx="210" cy="36" r="2.5"/><circle cx="262" cy="56" r="2.5"/><circle cx="156" cy="24" r="2.5"/></g>
+</svg>

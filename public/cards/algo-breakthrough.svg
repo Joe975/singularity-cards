@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 120" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1c0f12"/><stop offset="1" stop-color="#0b0e14"/></linearGradient>
+    <radialGradient id="gl" cx="50%" cy="20%" r="70%"><stop offset="0" stop-color="#e6715a" stop-opacity=".45"/><stop offset="1" stop-color="#e6715a" stop-opacity="0"/></radialGradient>
+  </defs>
+  <rect width="320" height="120" fill="url(#bg)"/>
+  <rect width="320" height="120" fill="url(#gl)"/>
+  <!-- faint architecture grid -->
+  <g stroke="#b03a5a" stroke-width="1" stroke-opacity=".3" fill="none"><path d="M40 96 H280 M70 96 V64 M120 96 V52 M200 96 V52 M250 96 V64 M70 64 H250 M120 52 H200"/></g>
+  <!-- spark rays -->
+  <g stroke="#ffb199" stroke-width="2.5" stroke-linecap="round" stroke-opacity=".85"><line x1="160" y1="6" x2="160" y2="16"/><line x1="120" y1="14" x2="126" y2="24"/><line x1="200" y1="14" x2="194" y2="24"/><line x1="96" y1="40" x2="106" y2="44"/><line x1="224" y1="40" x2="214" y2="44"/></g>
+  <!-- bulb -->
+  <g transform="translate(160,52)">
+    <circle r="24" fill="#1c0f12" stroke="#e6715a" stroke-width="2.5"/>
+    <circle r="24" fill="#e6715a" fill-opacity=".12"/>
+    <path d="M-7 6 q7 -10 0 -20 M7 6 q-7 -10 0 -20" fill="none" stroke="#ffb199" stroke-width="2" stroke-linecap="round"/>
+    <rect x="-8" y="22" width="16" height="6" rx="2" fill="#e6715a"/>
+    <rect x="-6" y="28" width="12" height="5" rx="2" fill="#b03a5a"/>
+  </g>
+  <circle cx="160" cy="44" r="3.5" fill="#ffd766"/>
+</svg>

@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 120" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1c1808"/><stop offset="1" stop-color="#0b0e14"/></linearGradient>
+    <radialGradient id="gl" cx="60%" cy="-10%" r="90%"><stop offset="0" stop-color="#e6c75a" stop-opacity=".34"/><stop offset="1" stop-color="#e6c75a" stop-opacity="0"/></radialGradient>
+  </defs>
+  <rect width="320" height="120" fill="url(#bg)"/>
+  <rect width="320" height="120" fill="url(#gl)"/>
+  <!-- ascending revenue bars -->
+  <g fill="#b08a2c"><rect x="30" y="78" width="20" height="24" rx="2"/><rect x="58" y="64" width="20" height="38" rx="2"/><rect x="86" y="48" width="20" height="54" rx="2"/></g>
+  <!-- upward arrow -->
+  <path d="M30 92 L96 56 L130 70 L196 26" fill="none" stroke="#e6c75a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M196 26 l-22 2 m22 -2 l-4 22" fill="none" stroke="#e6c75a" stroke-width="3" stroke-linecap="round"/>
+  <!-- rocket -->
+  <g transform="translate(244,40) rotate(45)">
+    <path d="M0 -24 C12 -12 12 8 0 20 C-12 8 -12 -12 0 -24 Z" fill="#0e2a24" stroke="#e6c75a" stroke-width="2.5" transform="rotate(-45)"/>
+  </g>
+  <g transform="translate(244,40)">
+    <path d="M0 -22 C9 -10 9 6 0 18 C-9 6 -9 -10 0 -22 Z" fill="#1c1808" stroke="#e6c75a" stroke-width="2.5"/>
+    <circle cx="0" cy="-6" r="4" fill="#e6c75a"/>
+    <path d="M-9 8 L-16 18 -6 12 Z M9 8 L16 18 6 12 Z" fill="#b08a2c"/>
+    <path d="M-3 18 q3 12 3 12 q0 0 3 -12 Z" fill="#ffd766"/>
+  </g>
+</svg>

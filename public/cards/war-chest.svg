@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 120" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1c1808"/><stop offset="1" stop-color="#0b0e14"/></linearGradient>
+    <radialGradient id="gl" cx="50%" cy="-10%" r="90%"><stop offset="0" stop-color="#e6c75a" stop-opacity=".34"/><stop offset="1" stop-color="#e6c75a" stop-opacity="0"/></radialGradient>
+  </defs>
+  <rect width="320" height="120" fill="url(#bg)"/>
+  <rect width="320" height="120" fill="url(#gl)"/>
+  <!-- vault door -->
+  <g transform="translate(72,60)">
+    <rect x="-44" y="-40" width="88" height="80" rx="6" fill="#0e2a24" stroke="#b08a2c" stroke-width="2.5"/>
+    <circle cx="0" cy="0" r="26" fill="none" stroke="#e6c75a" stroke-width="3"/>
+    <circle cx="0" cy="0" r="9" fill="#1c1808" stroke="#e6c75a" stroke-width="2.5"/>
+    <g stroke="#e6c75a" stroke-width="3" stroke-linecap="round"><line x1="0" y1="-26" x2="0" y2="-38"/><line x1="0" y1="26" x2="0" y2="38"/><line x1="-26" y1="0" x2="-38" y2="0"/><line x1="26" y1="0" x2="38" y2="0"/></g>
+  </g>
+  <!-- stacked coins -->
+  <g stroke="#b08a2c" stroke-width="2">
+    <g fill="#e6c75a"><ellipse cx="200" cy="92" rx="26" ry="9"/><ellipse cx="200" cy="80" rx="26" ry="9"/><ellipse cx="200" cy="68" rx="26" ry="9"/></g>
+    <g fill="#ffd766"><ellipse cx="252" cy="96" rx="22" ry="8"/><ellipse cx="252" cy="86" rx="22" ry="8"/></g>
+  </g>
+  <g fill="#1c1808" font-family="sans-serif"><circle cx="252" cy="86" r="5" fill="#b08a2c"/></g>
+</svg>

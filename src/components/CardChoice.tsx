@@ -29,9 +29,18 @@ export function CardChoice({ offer, resources, onPlay, onSkip }: Props) {
       <div className="cards">
         {offer.map((card) => {
           const playable = canPlay(card, resources);
+          // Per-archetype SVG art, with the type gradient as fallback for any missing file.
+          const art = `${import.meta.env.BASE_URL}cards/${card.templateKey}.svg`;
           return (
             <div key={card.id} className={`card rarity-${card.rarity} ${playable ? '' : 'locked'}`}>
-              <div className="card-art" style={{ background: TYPE_GRADIENT[card.type] }}>
+              <div
+                className="card-art"
+                style={{
+                  backgroundImage: `url("${art}"), ${TYPE_GRADIENT[card.type]}`,
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center',
+                }}
+              >
                 <span className="card-type">{TYPE_LABEL[card.type]}</span>
                 <span className={`card-rarity ${card.rarity}`}>{card.rarity}</span>
               </div>
